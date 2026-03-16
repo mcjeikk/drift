@@ -1,0 +1,139 @@
+/**
+ * Drift Welcome Page Stylesheet
+ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-family);
+  background: var(--surface-bg);
+  color: var(--surface-fg);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome {
+  max-width: 480px;
+  width: 100%;
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+/* Slides */
+.slides {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+}
+
+.slide {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-lg);
+  animation: fade-in 400ms ease;
+}
+
+.slide.active {
+  display: flex;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.slide__illustration {
+  padding: var(--space-lg);
+}
+
+.slide h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.slide p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--surface-muted);
+  max-width: 380px;
+}
+
+/* Dots */
+.dots {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: var(--surface-border);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 0;
+}
+
+.dot.active {
+  background: var(--color-primary);
+  width: 24px;
+  border-radius: 5px;
+}
+
+.dot:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Nav */
+.nav {
+  display: flex;
+  gap: var(--space-md);
+  width: 100%;
+  justify-content: center;
+}
+
+.nav__btn {
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+}
+
+.nav__btn--back {
+  background: var(--surface-secondary);
+  color: var(--surface-muted);
+}
+
+.nav__btn--back:hover {
+  background: var(--surface-tertiary);
+  color: var(--surface-fg);
+}
+
+.nav__btn--next {
+  background: var(--color-primary);
+  color: #fff;
+  min-width: 140px;
+}
+
+.nav__btn--next:hover {
+  background: var(--color-primary-hover);
+}
+
+.nav__btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

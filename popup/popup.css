@@ -1,0 +1,353 @@
+/**
+ * Drift Popup Stylesheet
+ * Clean, modern, dark-first design with indigo accents.
+ */
+
+/* ================================================================== */
+/*  LAYOUT                                                            */
+/* ================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 340px;
+  min-height: 420px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  background: var(--surface-bg);
+  color: var(--surface-fg);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  overflow-x: hidden;
+}
+
+/* ================================================================== */
+/*  HEADER                                                            */
+/* ================================================================== */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.header__logo {
+  flex-shrink: 0;
+}
+
+.header__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+
+.header__tagline {
+  font-size: 11px;
+  color: var(--surface-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ================================================================== */
+/*  TOGGLE                                                            */
+/* ================================================================== */
+
+.toggle-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) 0;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 72px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.toggle__slider {
+  position: absolute;
+  inset: 0;
+  background: var(--surface-secondary);
+  border-radius: 36px;
+  transition: background var(--transition-fast);
+}
+
+.toggle__slider::before {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  left: 4px;
+  bottom: 4px;
+  background: var(--surface-bg);
+  border-radius: 50%;
+  transition: transform var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.toggle input:checked + .toggle__slider {
+  background: var(--color-primary);
+}
+
+.toggle input:checked + .toggle__slider::before {
+  transform: translateX(36px);
+}
+
+.toggle:focus-within .toggle__slider {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.status-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--surface-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-text--active {
+  color: var(--color-success);
+}
+
+.active-time {
+  font-size: 12px;
+  color: var(--surface-muted);
+  min-height: 16px;
+}
+
+/* ================================================================== */
+/*  MODE SELECTOR                                                     */
+/* ================================================================== */
+
+.modes {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+.mode-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
+  background: var(--surface-bg);
+  color: var(--surface-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex: 1;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.mode-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--surface-fg);
+}
+
+.mode-btn--active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-alpha);
+  color: var(--color-primary);
+}
+
+.mode-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.mode-btn__icon {
+  font-size: 18px;
+}
+
+.mode-btn__label {
+  font-weight: 500;
+}
+
+/* ================================================================== */
+/*  QUICK TIMER                                                       */
+/* ================================================================== */
+
+.quick-timer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--surface-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.timer-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.timer-btn {
+  flex: 1;
+  padding: 6px 0;
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-bg);
+  color: var(--surface-fg);
+  font-size: 12px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.timer-btn:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-alpha);
+  color: var(--color-primary);
+}
+
+.timer-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+.timer-btn--active {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.timer-remaining {
+  font-size: 11px;
+  color: var(--color-primary);
+  min-height: 14px;
+  text-align: center;
+}
+
+/* ================================================================== */
+/*  SCHEDULE INFO                                                     */
+/* ================================================================== */
+
+.schedule-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-primary-alpha);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  color: var(--color-primary);
+}
+
+.schedule-info__icon {
+  font-size: 14px;
+}
+
+/* ================================================================== */
+/*  PRESENCE DETECTION                                                */
+/* ================================================================== */
+
+.presence {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.presence__apps {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+.presence__app {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.presence__name {
+  color: var(--surface-muted);
+  font-weight: 500;
+}
+
+.presence__status {
+  font-weight: 600;
+}
+
+.presence__status--found {
+  color: var(--color-success);
+}
+
+.presence__status--missing {
+  color: var(--surface-muted);
+}
+
+.presence__divider {
+  color: var(--surface-border);
+  font-size: 12px;
+}
+
+/* ================================================================== */
+/*  FOOTER                                                            */
+/* ================================================================== */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--surface-border);
+  margin-top: auto;
+}
+
+.footer__link {
+  font-size: 12px;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer__link:hover {
+  text-decoration: underline;
+}
+
+.footer__link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.footer__version {
+  font-size: 11px;
+  color: var(--surface-muted);
+}

@@ -1,0 +1,294 @@
+{
+  "extensionName": {
+    "message": "Drift — Stay Present",
+    "description": "Extension display name in Chrome Web Store"
+  },
+  "extensionDescription": {
+    "message": "Stay present without lifting a finger. Smart activity keeper with scheduling, wellness breaks, and presence detection.",
+    "description": "Extension description for Chrome Web Store"
+  },
+  "actionTitle": {
+    "message": "Drift — Toggle Activity Keeper",
+    "description": "Tooltip shown when hovering the toolbar icon"
+  },
+  "commandToggle": {
+    "message": "Toggle Drift on/off",
+    "description": "Keyboard shortcut description"
+  },
+  "popupTitle": {
+    "message": "Drift",
+    "description": "Popup header title"
+  },
+  "popupTagline": {
+    "message": "Stay present",
+    "description": "Popup tagline under the logo"
+  },
+  "statusActive": {
+    "message": "Active",
+    "description": "Badge/status text when Drift is running"
+  },
+  "statusInactive": {
+    "message": "Inactive",
+    "description": "Badge/status text when Drift is off"
+  },
+  "statusScheduled": {
+    "message": "Scheduled",
+    "description": "Badge/status text when Drift is waiting for schedule"
+  },
+  "modeSimple": {
+    "message": "Simple",
+    "description": "Simple jiggle mode name"
+  },
+  "modeSimpleDesc": {
+    "message": "Minimal cursor movement",
+    "description": "Simple mode description"
+  },
+  "modeZen": {
+    "message": "Zen",
+    "description": "Zen jiggle mode name"
+  },
+  "modeZenDesc": {
+    "message": "Smooth circular motion",
+    "description": "Zen mode description"
+  },
+  "modeHuman": {
+    "message": "Human",
+    "description": "Human-like jiggle mode name"
+  },
+  "modeHumanDesc": {
+    "message": "Realistic activity patterns",
+    "description": "Human mode description"
+  },
+  "activeFor": {
+    "message": "Active for $TIME$",
+    "description": "Shows how long Drift has been active",
+    "placeholders": {
+      "time": { "content": "$1", "example": "2h 34m" }
+    }
+  },
+  "quickTimer": {
+    "message": "Quick Timer",
+    "description": "Quick timer section title"
+  },
+  "activateFor": {
+    "message": "Activate for:",
+    "description": "Label before timer buttons"
+  },
+  "minutes": {
+    "message": "$COUNT$m",
+    "description": "Minutes abbreviation",
+    "placeholders": {
+      "count": { "content": "$1", "example": "30" }
+    }
+  },
+  "hours": {
+    "message": "$COUNT$h",
+    "description": "Hours abbreviation",
+    "placeholders": {
+      "count": { "content": "$1", "example": "2" }
+    }
+  },
+  "custom": {
+    "message": "Custom",
+    "description": "Custom timer option"
+  },
+  "presenceDetection": {
+    "message": "Presence",
+    "description": "Presence detection section title"
+  },
+  "detected": {
+    "message": "Detected",
+    "description": "App detected status"
+  },
+  "notFound": {
+    "message": "Not found",
+    "description": "App not found status"
+  },
+  "settings": {
+    "message": "Settings",
+    "description": "Settings link text"
+  },
+  "scheduleNext": {
+    "message": "Next: $EVENT$ in $TIME$",
+    "description": "Next scheduled event",
+    "placeholders": {
+      "event": { "content": "$1", "example": "Lunch break" },
+      "time": { "content": "$2", "example": "45m" }
+    }
+  },
+  "lunchBreak": {
+    "message": "Lunch break",
+    "description": "Lunch break event name"
+  },
+  "workEnd": {
+    "message": "Work end",
+    "description": "Work end event name"
+  },
+  "breakReminder": {
+    "message": "Break Reminder",
+    "description": "Break reminder notification title"
+  },
+  "breakEyeTitle": {
+    "message": "👀 Eye Break — 20-20-20 Rule",
+    "description": "Eye break reminder title"
+  },
+  "breakEyeBody": {
+    "message": "Look at something 20 feet away for 20 seconds. Your eyes will thank you!",
+    "description": "Eye break reminder body"
+  },
+  "breakStretchTitle": {
+    "message": "🧘 Time to Stretch!",
+    "description": "Stretch break reminder title"
+  },
+  "breakStretchBody": {
+    "message": "Stand up, stretch your arms and back. A quick walk does wonders!",
+    "description": "Stretch break reminder body"
+  },
+  "breakWaterTitle": {
+    "message": "💧 Hydration Check",
+    "description": "Water break reminder title"
+  },
+  "breakWaterBody": {
+    "message": "Have you had water recently? Stay hydrated for better focus.",
+    "description": "Water break reminder body"
+  },
+  "settingsTitle": {
+    "message": "Drift Settings",
+    "description": "Settings page title"
+  },
+  "settingsJiggle": {
+    "message": "Jiggle Settings",
+    "description": "Jiggle settings section"
+  },
+  "settingsSchedule": {
+    "message": "Schedule",
+    "description": "Schedule settings section"
+  },
+  "settingsBreaks": {
+    "message": "Break Reminders",
+    "description": "Break reminders settings section"
+  },
+  "settingsGeneral": {
+    "message": "General",
+    "description": "General settings section"
+  },
+  "settingsAbout": {
+    "message": "About",
+    "description": "About section"
+  },
+  "defaultMode": {
+    "message": "Default Mode",
+    "description": "Default jiggle mode setting"
+  },
+  "intensity": {
+    "message": "Intensity",
+    "description": "Jiggle intensity setting"
+  },
+  "interval": {
+    "message": "Interval (seconds)",
+    "description": "Jiggle interval setting"
+  },
+  "workHours": {
+    "message": "Work Hours",
+    "description": "Work hours schedule setting"
+  },
+  "activeDays": {
+    "message": "Active Days",
+    "description": "Active days setting"
+  },
+  "enableLunchBreak": {
+    "message": "Enable Lunch Break",
+    "description": "Lunch break toggle"
+  },
+  "lunchTime": {
+    "message": "Lunch Time",
+    "description": "Lunch time setting"
+  },
+  "enableBreakReminders": {
+    "message": "Enable Break Reminders",
+    "description": "Break reminders toggle"
+  },
+  "eyeBreakInterval": {
+    "message": "Eye Break Interval (min)",
+    "description": "Eye break interval setting"
+  },
+  "stretchInterval": {
+    "message": "Stretch Interval (min)",
+    "description": "Stretch interval setting"
+  },
+  "theme": {
+    "message": "Theme",
+    "description": "Theme setting"
+  },
+  "themeLight": {
+    "message": "Light",
+    "description": "Light theme option"
+  },
+  "themeDark": {
+    "message": "Dark",
+    "description": "Dark theme option"
+  },
+  "themeSystem": {
+    "message": "System",
+    "description": "System theme option"
+  },
+  "notifications": {
+    "message": "Notifications",
+    "description": "Notifications toggle"
+  },
+  "startOnLaunch": {
+    "message": "Start on browser launch",
+    "description": "Auto-start setting"
+  },
+  "savedSuccessfully": {
+    "message": "Settings saved",
+    "description": "Confirmation when settings are saved"
+  },
+  "welcomeTitle": {
+    "message": "Welcome to Drift",
+    "description": "Welcome page title"
+  },
+  "welcomeSlide1Title": {
+    "message": "What is Drift?",
+    "description": "Welcome slide 1 title"
+  },
+  "welcomeSlide1Body": {
+    "message": "Drift keeps your presence active and your computer awake — so you can take real breaks without anxiety.",
+    "description": "Welcome slide 1 body"
+  },
+  "welcomeSlide2Title": {
+    "message": "Smart Features",
+    "description": "Welcome slide 2 title"
+  },
+  "welcomeSlide2Body": {
+    "message": "Three activity modes, smart scheduling, wellness break reminders, and presence detection for Teams & Slack.",
+    "description": "Welcome slide 2 body"
+  },
+  "welcomeSlide3Title": {
+    "message": "Get Started",
+    "description": "Welcome slide 3 title"
+  },
+  "welcomeSlide3Body": {
+    "message": "Click the Drift icon in your toolbar or press Alt+Shift+D to toggle. Customize everything in Settings.",
+    "description": "Welcome slide 3 body"
+  },
+  "getStarted": {
+    "message": "Get Started",
+    "description": "Get started button text"
+  },
+  "next": {
+    "message": "Next",
+    "description": "Next button text"
+  },
+  "back": {
+    "message": "Back",
+    "description": "Back button text"
+  },
+  "mon": { "message": "Mon", "description": "Monday abbreviation" },
+  "tue": { "message": "Tue", "description": "Tuesday abbreviation" },
+  "wed": { "message": "Wed", "description": "Wednesday abbreviation" },
+  "thu": { "message": "Thu", "description": "Thursday abbreviation" },
+  "fri": { "message": "Fri", "description": "Friday abbreviation" },
+  "sat": { "message": "Sat", "description": "Saturday abbreviation" },
+  "sun": { "message": "Sun", "description": "Sunday abbreviation" }
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="settingsTitle">Drift Settings</title>
+  <link rel="stylesheet" href="../assets/styles/themes.css">
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <div class="settings-container">
+    <!-- Header -->
+    <header class="settings-header">
+      <svg class="settings-header__logo" width="32" height="32" viewBox="0 0 128 128" aria-hidden="true">
+        <circle cx="64" cy="64" r="56" fill="none" stroke="var(--color-primary)" stroke-width="8" opacity="0.3"/>
+        <path d="M 30 64 Q 50 30, 64 64 Q 78 98, 98 64" fill="none" stroke="var(--color-primary)" stroke-width="8" stroke-linecap="round"/>
+      </svg>
+      <h1 data-i18n="settingsTitle">Drift Settings</h1>
+    </header>
+
+    <!-- Toast -->
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden>
+      <span data-i18n="savedSuccessfully">Settings saved</span>
+    </div>
+
+    <!-- Jiggle Settings -->
+    <section class="card" aria-labelledby="jiggle-heading">
+      <h2 id="jiggle-heading" data-i18n="settingsJiggle">Jiggle Settings</h2>
+
+      <div class="field">
+        <label for="default-mode" data-i18n="defaultMode">Default Mode</label>
+        <select id="default-mode" aria-label="Default jiggle mode">
+          <option value="simple" data-i18n="modeSimple">Simple</option>
+          <option value="zen" data-i18n="modeZen">Zen</option>
+          <option value="human" data-i18n="modeHuman">Human</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="intensity" data-i18n="intensity">Intensity</label>
+        <div class="range-group">
+          <input type="range" id="intensity" min="1" max="10" value="5" aria-label="Jiggle intensity">
+          <span class="range-value" id="intensity-value">5</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="interval" data-i18n="interval">Interval (seconds)</label>
+        <div class="range-group">
+          <input type="range" id="interval" min="5" max="300" value="30" step="5" aria-label="Jiggle interval in seconds">
+          <span class="range-value" id="interval-value">30s</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schedule -->
+    <section class="card" aria-labelledby="schedule-heading">
+      <h2 id="schedule-heading" data-i18n="settingsSchedule">Schedule</h2>
+
+      <div class="field field--toggle">
+        <label for="schedule-enabled" data-i18n="workHours">Work Hours</label>
+        <label class="switch">
+          <input type="checkbox" id="schedule-enabled">
+          <span class="switch__slider"></span>
+        </label>
+      </div>
+
+      <div class="field field--time" id="schedule-times">
+        <div class="time-group">
+          <label for="work-start">Start</label>
+          <input type="time" id="work-start" value="09:00" aria-label="Work start time">
+        </div>
+        <span class="time-sep">—</span>
+        <div class="time-group">
+          <label for="work-end">End</label>
+          <input type="time" id="work-end" value="18:00" aria-label="Work end time">
+        </div>
+      </div>
+
+      <div class="field">
+        <label data-i18n="activeDays">Active Days</label>
+        <div class="day-picker" role="group" aria-label="Active days">
+          <button class="day-btn" data-day="1" aria-pressed="true" data-i18n="mon">Mon</button>
+          <button class="day-btn" data-day="2" aria-pressed="true" data-i18n="tue">Tue</button>
+          <button class="day-btn" data-day="3" aria-pressed="true" data-i18n="wed">Wed</button>
+          <button class="day-btn" data-day="4" aria-pressed="true" data-i18n="thu">Thu</button>
+          <button class="day-btn" data-day="5" aria-pressed="true" data-i18n="fri">Fri</button>
+          <button class="day-btn" data-day="6" aria-pressed="false" data-i18n="sat">Sat</button>
+          <button class="day-btn" data-day="0" aria-pressed="false" data-i18n="sun">Sun</button>
+        </div>
+      </div>
+
+      <div class="field field--toggle">
+        <label for="lunch-enabled" data-i18n="enableLunchBreak">Enable Lunch Break</label>
+        <label class="switch">
+          <input type="checkbox" id="lunch-enabled">
+          <span class="switch__slider"></span>
+        </label>
+      </div>
+
+      <div class="field field--time" id="lunch-times">
+        <div class="time-group">
+          <label for="lunch-start">Start</label>
+          <input type="time" id="lunch-start" value="12:00" aria-label="Lunch start time">
+        </div>
+        <span class="time-sep">—</span>
+        <div class="time-group">
+          <label for="lunch-end">End</label>
+          <input type="time" id="lunch-end" value="13:00" aria-label="Lunch end time">
+        </div>
+      </div>
+    </section>
+
+    <!-- Break Reminders -->
+    <section class="card" aria-labelledby="breaks-heading">
+      <h2 id="breaks-heading" data-i18n="settingsBreaks">Break Reminders</h2>
+
+      <div class="field field--toggle">
+        <label for="breaks-enabled" data-i18n="enableBreakReminders">Enable Break Reminders</label>
+        <label class="switch">
+          <input type="checkbox" id="breaks-enabled" checked>
+          <span class="switch__slider"></span>
+        </label>
+      </div>
+
+      <div class="field">
+        <label for="eye-interval" data-i18n="eyeBreakInterval">Eye Break Interval (min)</label>
+        <div class="range-group">
+          <input type="range" id="eye-interval" min="10" max="60" value="20" step="5" aria-label="Eye break interval in minutes">
+          <span class="range-value" id="eye-interval-value">20m</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="stretch-interval" data-i18n="stretchInterval">Stretch Interval (min)</label>
+        <div class="range-group">
+          <input type="range" id="stretch-interval" min="15" max="120" value="45" step="5" aria-label="Stretch interval in minutes">
+          <span class="range-value" id="stretch-interval-value">45m</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- General -->
+    <section class="card" aria-labelledby="general-heading">
+      <h2 id="general-heading" data-i18n="settingsGeneral">General</h2>
+
+      <div class="field">
+        <label for="theme-select" data-i18n="theme">Theme</label>
+        <select id="theme-select" aria-label="Theme selection">
+          <option value="dark" data-i18n="themeDark">Dark</option>
+          <option value="light" data-i18n="themeLight">Light</option>
+          <option value="system" data-i18n="themeSystem">System</option>
+        </select>
+      </div>
+
+      <div class="field field--toggle">
+        <label for="notifications-enabled" data-i18n="notifications">Notifications</label>
+        <label class="switch">
+          <input type="checkbox" id="notifications-enabled" checked>
+          <span class="switch__slider"></span>
+        </label>
+      </div>
+
+      <div class="field field--toggle">
+        <label for="start-on-launch" data-i18n="startOnLaunch">Start on browser launch</label>
+        <label class="switch">
+          <input type="checkbox" id="start-on-launch">
+          <span class="switch__slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="card" aria-labelledby="about-heading">
+      <h2 id="about-heading" data-i18n="settingsAbout">About</h2>
+      <div class="about-info">
+        <p><strong>Drift</strong> — Stay present</p>
+        <p>Version <span id="about-version">0.1.0</span></p>
+        <p>
+          <a href="https://github.com/mcjeikk/drift" target="_blank" rel="noopener">GitHub</a>
+        </p>
+        <p class="about-disclaimer">
+          This tool prevents idle detection. Use responsibly and in compliance with your employer's policies.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <script src="settings.js" type="module"></script>
+</body>
+</html>

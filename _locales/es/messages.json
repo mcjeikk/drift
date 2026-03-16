@@ -1,0 +1,114 @@
+{
+  "extensionName": {
+    "message": "Drift — Mantén tu presencia",
+    "description": "Nombre de la extensión"
+  },
+  "extensionDescription": {
+    "message": "Mantén tu presencia sin mover un dedo. Actividad inteligente con horarios, pausas de bienestar y detección de presencia.",
+    "description": "Descripción de la extensión"
+  },
+  "actionTitle": {
+    "message": "Drift — Activar/desactivar",
+    "description": "Tooltip del icono"
+  },
+  "commandToggle": {
+    "message": "Activar/desactivar Drift",
+    "description": "Descripción del atajo de teclado"
+  },
+  "popupTitle": {
+    "message": "Drift",
+    "description": "Título del popup"
+  },
+  "popupTagline": {
+    "message": "Mantén tu presencia",
+    "description": "Tagline del popup"
+  },
+  "statusActive": { "message": "Activo", "description": "Estado activo" },
+  "statusInactive": { "message": "Inactivo", "description": "Estado inactivo" },
+  "statusScheduled": { "message": "Programado", "description": "Estado programado" },
+  "modeSimple": { "message": "Simple", "description": "Modo simple" },
+  "modeSimpleDesc": { "message": "Movimiento mínimo del cursor", "description": "Descripción modo simple" },
+  "modeZen": { "message": "Zen", "description": "Modo zen" },
+  "modeZenDesc": { "message": "Movimiento circular suave", "description": "Descripción modo zen" },
+  "modeHuman": { "message": "Humano", "description": "Modo humano" },
+  "modeHumanDesc": { "message": "Patrones de actividad realistas", "description": "Descripción modo humano" },
+  "activeFor": {
+    "message": "Activo por $TIME$",
+    "description": "Tiempo activo",
+    "placeholders": { "time": { "content": "$1", "example": "2h 34m" } }
+  },
+  "quickTimer": { "message": "Timer Rápido", "description": "Sección de timer" },
+  "activateFor": { "message": "Activar por:", "description": "Etiqueta timer" },
+  "minutes": {
+    "message": "$COUNT$m",
+    "description": "Minutos",
+    "placeholders": { "count": { "content": "$1", "example": "30" } }
+  },
+  "hours": {
+    "message": "$COUNT$h",
+    "description": "Horas",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "custom": { "message": "Personalizado", "description": "Opción personalizada" },
+  "presenceDetection": { "message": "Presencia", "description": "Detección de presencia" },
+  "detected": { "message": "Detectado", "description": "Estado detectado" },
+  "notFound": { "message": "No encontrado", "description": "Estado no encontrado" },
+  "settings": { "message": "Ajustes", "description": "Enlace a ajustes" },
+  "scheduleNext": {
+    "message": "Siguiente: $EVENT$ en $TIME$",
+    "description": "Próximo evento",
+    "placeholders": {
+      "event": { "content": "$1", "example": "Almuerzo" },
+      "time": { "content": "$2", "example": "45m" }
+    }
+  },
+  "lunchBreak": { "message": "Almuerzo", "description": "Nombre del almuerzo" },
+  "workEnd": { "message": "Fin de jornada", "description": "Fin del trabajo" },
+  "breakReminder": { "message": "Recordatorio de Pausa", "description": "Título de notificación" },
+  "breakEyeTitle": { "message": "👀 Descanso Visual — Regla 20-20-20", "description": "Título pausa visual" },
+  "breakEyeBody": { "message": "Mira algo a 6 metros de distancia por 20 segundos. ¡Tus ojos te lo agradecerán!", "description": "Cuerpo pausa visual" },
+  "breakStretchTitle": { "message": "🧘 ¡Hora de estirarse!", "description": "Título pausa estiramiento" },
+  "breakStretchBody": { "message": "Levántate, estira brazos y espalda. ¡Una caminata corta hace maravillas!", "description": "Cuerpo pausa estiramiento" },
+  "breakWaterTitle": { "message": "💧 Chequeo de Hidratación", "description": "Título pausa agua" },
+  "breakWaterBody": { "message": "¿Has tomado agua recientemente? Mantente hidratado para mejor concentración.", "description": "Cuerpo pausa agua" },
+  "settingsTitle": { "message": "Ajustes de Drift", "description": "Título de ajustes" },
+  "settingsJiggle": { "message": "Configuración de Movimiento", "description": "Sección movimiento" },
+  "settingsSchedule": { "message": "Horario", "description": "Sección horario" },
+  "settingsBreaks": { "message": "Recordatorios de Pausa", "description": "Sección pausas" },
+  "settingsGeneral": { "message": "General", "description": "Sección general" },
+  "settingsAbout": { "message": "Acerca de", "description": "Sección acerca de" },
+  "defaultMode": { "message": "Modo Predeterminado", "description": "Ajuste modo predeterminado" },
+  "intensity": { "message": "Intensidad", "description": "Ajuste de intensidad" },
+  "interval": { "message": "Intervalo (segundos)", "description": "Ajuste de intervalo" },
+  "workHours": { "message": "Horario Laboral", "description": "Ajuste horario laboral" },
+  "activeDays": { "message": "Días Activos", "description": "Ajuste días activos" },
+  "enableLunchBreak": { "message": "Habilitar Almuerzo", "description": "Toggle almuerzo" },
+  "lunchTime": { "message": "Hora de Almuerzo", "description": "Ajuste hora almuerzo" },
+  "enableBreakReminders": { "message": "Habilitar Recordatorios", "description": "Toggle recordatorios" },
+  "eyeBreakInterval": { "message": "Intervalo Pausa Visual (min)", "description": "Ajuste intervalo visual" },
+  "stretchInterval": { "message": "Intervalo Estiramiento (min)", "description": "Ajuste intervalo estiramiento" },
+  "theme": { "message": "Tema", "description": "Ajuste de tema" },
+  "themeLight": { "message": "Claro", "description": "Tema claro" },
+  "themeDark": { "message": "Oscuro", "description": "Tema oscuro" },
+  "themeSystem": { "message": "Sistema", "description": "Tema del sistema" },
+  "notifications": { "message": "Notificaciones", "description": "Toggle notificaciones" },
+  "startOnLaunch": { "message": "Iniciar al abrir el navegador", "description": "Auto-inicio" },
+  "savedSuccessfully": { "message": "Ajustes guardados", "description": "Confirmación" },
+  "welcomeTitle": { "message": "Bienvenido a Drift", "description": "Título bienvenida" },
+  "welcomeSlide1Title": { "message": "¿Qué es Drift?", "description": "Título slide 1" },
+  "welcomeSlide1Body": { "message": "Drift mantiene tu presencia activa y tu computadora despierta — para que puedas tomar pausas reales sin ansiedad.", "description": "Cuerpo slide 1" },
+  "welcomeSlide2Title": { "message": "Funciones Inteligentes", "description": "Título slide 2" },
+  "welcomeSlide2Body": { "message": "Tres modos de actividad, horarios inteligentes, recordatorios de bienestar y detección de presencia para Teams y Slack.", "description": "Cuerpo slide 2" },
+  "welcomeSlide3Title": { "message": "Comienza", "description": "Título slide 3" },
+  "welcomeSlide3Body": { "message": "Haz clic en el ícono de Drift o presiona Alt+Shift+D para activar. Personaliza todo en Ajustes.", "description": "Cuerpo slide 3" },
+  "getStarted": { "message": "Comenzar", "description": "Botón comenzar" },
+  "next": { "message": "Siguiente", "description": "Botón siguiente" },
+  "back": { "message": "Atrás", "description": "Botón atrás" },
+  "mon": { "message": "Lun", "description": "Lunes" },
+  "tue": { "message": "Mar", "description": "Martes" },
+  "wed": { "message": "Mié", "description": "Miércoles" },
+  "thu": { "message": "Jue", "description": "Jueves" },
+  "fri": { "message": "Vie", "description": "Viernes" },
+  "sat": { "message": "Sáb", "description": "Sábado" },
+  "sun": { "message": "Dom", "description": "Domingo" }
+}

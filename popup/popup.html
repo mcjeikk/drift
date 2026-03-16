@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="popupTitle">Drift</title>
+  <link rel="stylesheet" href="../assets/styles/themes.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" role="banner">
+    <div class="header__brand">
+      <svg class="header__logo" width="28" height="28" viewBox="0 0 128 128" aria-hidden="true">
+        <circle cx="64" cy="64" r="56" fill="none" stroke="var(--color-primary)" stroke-width="8" opacity="0.3"/>
+        <path d="M 30 64 Q 50 30, 64 64 Q 78 98, 98 64" fill="none" stroke="var(--color-primary)" stroke-width="8" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <h1 class="header__title" data-i18n="popupTitle">Drift</h1>
+        <p class="header__tagline" data-i18n="popupTagline">Stay present</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Toggle -->
+  <section class="toggle-section" role="region" aria-label="Toggle Drift">
+    <label class="toggle" role="switch" aria-checked="false" tabindex="0" id="main-toggle">
+      <input type="checkbox" id="toggle-input" aria-label="Toggle Drift on or off">
+      <span class="toggle__slider"></span>
+    </label>
+    <p class="status-text" id="status-text" role="status" aria-live="polite">Inactive</p>
+    <p class="active-time" id="active-time"></p>
+  </section>
+
+  <!-- Mode Selector -->
+  <section class="modes" role="radiogroup" aria-label="Activity mode">
+    <button class="mode-btn" data-mode="simple" role="radio" aria-checked="false" tabindex="0"
+            aria-label="Simple mode — minimal cursor movement">
+      <span class="mode-btn__icon">⚡</span>
+      <span class="mode-btn__label" data-i18n="modeSimple">Simple</span>
+    </button>
+    <button class="mode-btn" data-mode="zen" role="radio" aria-checked="false" tabindex="0"
+            aria-label="Zen mode — smooth circular motion">
+      <span class="mode-btn__icon">🧘</span>
+      <span class="mode-btn__label" data-i18n="modeZen">Zen</span>
+    </button>
+    <button class="mode-btn mode-btn--active" data-mode="human" role="radio" aria-checked="true" tabindex="0"
+            aria-label="Human mode — realistic activity patterns">
+      <span class="mode-btn__icon">🤖</span>
+      <span class="mode-btn__label" data-i18n="modeHuman">Human</span>
+    </button>
+  </section>
+
+  <!-- Quick Timer -->
+  <section class="quick-timer" role="region" aria-label="Quick timer">
+    <p class="section-label" data-i18n="activateFor">Activate for:</p>
+    <div class="timer-buttons">
+      <button class="timer-btn" data-minutes="30" aria-label="Activate for 30 minutes">30m</button>
+      <button class="timer-btn" data-minutes="60" aria-label="Activate for 1 hour">1h</button>
+      <button class="timer-btn" data-minutes="120" aria-label="Activate for 2 hours">2h</button>
+      <button class="timer-btn" data-minutes="240" aria-label="Activate for 4 hours">4h</button>
+    </div>
+    <p class="timer-remaining" id="timer-remaining" role="status" aria-live="polite"></p>
+  </section>
+
+  <!-- Schedule Info -->
+  <section class="schedule-info" id="schedule-info" role="status" aria-live="polite" hidden>
+    <span class="schedule-info__icon">📅</span>
+    <span class="schedule-info__text" id="schedule-text"></span>
+  </section>
+
+  <!-- Presence Detection -->
+  <section class="presence" role="region" aria-label="Presence detection">
+    <p class="section-label" data-i18n="presenceDetection">Presence</p>
+    <div class="presence__apps">
+      <span class="presence__app" id="presence-teams">
+        <span class="presence__name">Teams</span>
+        <span class="presence__status" id="teams-status">—</span>
+      </span>
+      <span class="presence__divider">|</span>
+      <span class="presence__app" id="presence-slack">
+        <span class="presence__name">Slack</span>
+        <span class="presence__status" id="slack-status">—</span>
+      </span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <a href="#" id="settings-link" class="footer__link" data-i18n="settings"
+       aria-label="Open Drift settings">Settings</a>
+    <span class="footer__version" id="version-text">v0.1.0</span>
+  </footer>
+
+  <script src="popup.js" type="module"></script>
+</body>
+</html>

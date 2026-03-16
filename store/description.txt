@@ -1,0 +1,45 @@
+Drift — Stay Present Without Lifting a Finger
+
+Drift is a smart activity keeper that maintains your online presence, prevents your computer from sleeping, and helps you take real breaks without the anxiety of appearing idle.
+
+🌊 THREE ACTIVITY MODES
+• Simple — Minimal cursor movement, lightweight and discreet
+• Zen — Smooth circular motion for a calm, steady presence
+• Human — Realistic activity patterns with variable speed, micro-movements, and natural pauses
+
+⏰ SMART SCHEDULING
+• Set work hours (e.g., Mon–Fri 9am–6pm) for automatic activation
+• Configurable lunch break — your status changes naturally
+• Quick timers: activate for 30m, 1h, 2h, or 4h with one click
+• Works around your schedule, not against it
+
+🧘 WELLNESS BREAK REMINDERS
+Because everyone deserves real breaks:
+• 20-20-20 Rule — Eye rest reminders every 20 minutes
+• Stretch reminders every 45–60 minutes
+• Hydration check-ins
+• Fully customizable — enable what you need
+
+🔍 PRESENCE DETECTION
+• Detects if Microsoft Teams or Slack is open in your browser
+• Visual indicator showing which apps are active
+• Stay informed about your digital presence at a glance
+
+✨ DESIGNED FOR PROFESSIONALS
+• Clean, modern dark UI with indigo accents
+• Keyboard shortcut (Alt+Shift+D) for instant toggle
+• Toolbar badge: green (active), red (inactive), yellow (scheduled)
+• Zero data collection — everything stays on your device
+• Available in English, Spanish, and Portuguese
+
+🔒 PRIVACY FIRST
+Drift operates entirely locally. No accounts, no servers, no data collection. Your activity data never leaves your browser.
+
+⚡ LIGHTWEIGHT
+Minimal resource usage. No background page — uses modern Manifest V3 service worker architecture for efficiency.
+
+—
+
+Drift exists because everyone deserves autonomy over their breaks. We don't promote avoiding work — we promote working without the constant anxiety of surveillance that distracts and stresses.
+
+Use responsibly and in compliance with your employer's policies.
