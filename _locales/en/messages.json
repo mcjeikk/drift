@@ -43,6 +43,10 @@
     "message": "Minimal cursor movement",
     "description": "Simple mode description"
   },
+  "modeSimpleShort": {
+    "message": "Tiny mouse micro-moves",
+    "description": "Simple mode short description"
+  },
   "modeZen": {
     "message": "Zen",
     "description": "Zen jiggle mode name"
@@ -51,6 +55,10 @@
     "message": "Smooth circular motion",
     "description": "Zen mode description"
   },
+  "modeZenShort": {
+    "message": "Smooth circular motion",
+    "description": "Zen mode short description"
+  },
   "modeHuman": {
     "message": "Human",
     "description": "Human-like jiggle mode name"
@@ -58,6 +66,10 @@
   "modeHumanDesc": {
     "message": "Realistic activity patterns",
     "description": "Human mode description"
+  },
+  "modeHumanShort": {
+    "message": "Mouse + scroll + keys",
+    "description": "Human mode short description"
   },
   "activeFor": {
     "message": "Active for $TIME$",
@@ -334,5 +346,29 @@
   "errorTimer": {
     "message": "Timer failed",
     "description": "Error when timer fails"
+  },
+  "intensityLabel": {
+    "message": "INTENSITY:",
+    "description": "Intensity control label"
+  },
+  "intensityLow": {
+    "message": "Low",
+    "description": "Low intensity"
+  },
+  "intensityMed": {
+    "message": "Medium",
+    "description": "Medium intensity"
+  },
+  "intensityHigh": {
+    "message": "High",
+    "description": "High intensity"
+  },
+  "desktopWarning": {
+    "message": "Drift moves the cursor inside the browser. Desktop apps like Teams may require real mouse movement.",
+    "description": "Desktop app warning"
+  },
+  "browserNote": {
+    "message": "💡 Keep Chrome open for Drift to stay active",
+    "description": "Note about keeping Chrome open"
   }
 }

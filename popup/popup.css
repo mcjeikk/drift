@@ -15,7 +15,6 @@
 
 body {
   width: 340px;
-  min-height: 420px;
   font-family: var(--font-family);
   font-size: var(--font-size-base);
   background: var(--surface-bg);
@@ -195,6 +194,13 @@ body {
   font-weight: 500;
 }
 
+.mode-btn__desc {
+  font-size: 10px;
+  opacity: 0.6;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
 /* ================================================================== */
 /*  QUICK TIMER                                                       */
 /* ================================================================== */
@@ -322,6 +328,103 @@ body {
 }
 
 /* ================================================================== */
+/*  INTENSITY SLIDER                                                  */
+/* ================================================================== */
+
+.intensity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.intensity__control {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.intensity__slider {
+  flex: 1;
+  height: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--surface-secondary);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.intensity__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+.intensity__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-primary);
+  min-width: 40px;
+  text-align: right;
+}
+
+.intensity__ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--surface-muted);
+  padding: 0 2px;
+}
+
+/* ================================================================== */
+/*  DESKTOP WARNING                                                   */
+/* ================================================================== */
+
+.desktop-warning {
+  background: rgba(234, 179, 8, 0.1);
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--surface-fg);
+}
+
+.desktop-warning--hidden {
+  display: none;
+}
+
+.desktop-warning__content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.desktop-warning__text {
+  flex: 1;
+}
+
+.desktop-warning__close {
+  background: none;
+  border: none;
+  color: var(--surface-muted);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.desktop-warning__close:hover {
+  color: var(--surface-fg);
+}
+
+/* ================================================================== */
 /*  FOOTER                                                            */
 /* ================================================================== */
 
@@ -341,7 +444,6 @@ body {
   align-items: center;
   padding-top: var(--space-sm);
   border-top: 1px solid var(--surface-border);
-  margin-top: auto;
 }
 
 .footer__link {

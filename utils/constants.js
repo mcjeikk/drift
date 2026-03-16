@@ -114,7 +114,7 @@ export const JIGGLE = Object.freeze({
 /** Timing defaults */
 export const TIMING = Object.freeze({
   /** Default jiggle interval in seconds */
-  DEFAULT_INTERVAL_SEC: 30,
+  DEFAULT_INTERVAL_SEC: 15,
   /** Min jiggle interval in seconds */
   MIN_INTERVAL_SEC: 5,
   /** Max jiggle interval in seconds */
@@ -143,6 +143,16 @@ export const PRESENCE_PATTERNS = Object.freeze({
 
 /** Quick timer presets in minutes */
 export const QUICK_TIMERS = Object.freeze([30, 60, 120, 240]);
+
+/**
+ * Intensity levels: maps slider index to intervalSec.
+ * 0 = Low (45s), 1 = Medium (15s), 2 = High (5s)
+ */
+export const INTENSITY_LEVELS = Object.freeze([
+  { key: 'low',  intervalSec: 45 },
+  { key: 'med',  intervalSec: 15 },
+  { key: 'high', intervalSec: 5 },
+]);
 
 /** Default user settings */
 export const DEFAULT_SETTINGS = Object.freeze({
@@ -176,7 +186,7 @@ export const DEFAULT_RUNTIME = Object.freeze({
 
 /** Extension metadata */
 export const META = Object.freeze({
-  VERSION: '0.1.1',
+  VERSION: '0.2.0',
   NAME: 'Drift',
   TAGLINE: 'Stay present',
   REPO: 'https://github.com/mcjeikk/drift',

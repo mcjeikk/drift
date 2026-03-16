@@ -4,11 +4,11 @@
  * @module popup/popup
  */
 
-import { MSG, STATUS, MODES, META } from '../utils/constants.js';
+import { MSG, STATUS, MODES, META, INTENSITY_LEVELS } from '../utils/constants.js';
 import { sendMessage } from '../utils/messages.js';
 import { formatDuration, formatMinutes, minutesUntil, applyI18n } from '../utils/helpers.js';
 import { createLogger } from '../utils/logger.js';
-import { getSettings } from '../utils/storage.js';
+import { getSettings, saveSettings } from '../utils/storage.js';
 
 const log = createLogger('popup');
 
@@ -29,6 +29,10 @@ const $teamsStatus  = document.getElementById('teams-status');
 const $slackStatus  = document.getElementById('slack-status');
 const $settingsLink = document.getElementById('settings-link');
 const $versionText  = document.getElementById('version-text');
+const $intensitySlider = document.getElementById('intensity-slider');
+const $intensityLabel  = document.getElementById('intensity-label');
+const $desktopWarning  = document.getElementById('desktop-warning');
+const $dismissWarning  = document.getElementById('dismiss-warning');
 
 /* ================================================================== */
 /*  STATE                                                             */
@@ -44,15 +48,46 @@ let currentState = null;
 /*  INIT                                                              */
 /* ================================================================== */
 
+/** Intensity label map */
+const INTENSITY_LABELS = ['Baja', 'Media', 'Alta'];
+
 document.addEventListener('DOMContentLoaded', async () => {
   applyI18n();
   await applyStoredTheme();
   $versionText.textContent = `v${META.VERSION}`;
+  await initIntensity();
+  await initDesktopWarning();
   await refreshState();
   bindEvents();
   startTimerUpdate();
   log.info('Popup initialised');
 });
+
+/**
+ * Initialize the intensity slider from stored settings.
+ */
+async function initIntensity() {
+  const settings = await getSettings();
+  const currentInterval = settings.intervalSec || 15;
+  // Find matching intensity level
+  let idx = INTENSITY_LEVELS.findIndex(l => l.intervalSec === currentInterval);
+  if (idx === -1) idx = 1; // default to medium
+  $intensitySlider.value = idx;
+  $intensityLabel.textContent = chrome.i18n.getMessage(`intensity${INTENSITY_LEVELS[idx].key.charAt(0).toUpperCase() + INTENSITY_LEVELS[idx].key.slice(1)}`)
+    || INTENSITY_LABELS[idx];
+}
+
+/**
+ * Initialize the desktop warning dismissal state.
+ */
+async function initDesktopWarning() {
+  try {
+    const result = await chrome.storage.local.get('drift-warning-dismissed');
+    if (result['drift-warning-dismissed']) {
+      $desktopWarning.classList.add('desktop-warning--hidden');
+    }
+  } catch { /* ignore */ }
+}
 
 /**
  * Load the user's theme preference from storage and apply it.
@@ -287,6 +322,27 @@ function bindEvents() {
   $settingsLink.addEventListener('click', (e) => {
     e.preventDefault();
     chrome.runtime.openOptionsPage();
+  });
+
+  // Intensity slider
+  $intensitySlider.addEventListener('input', async () => {
+    const idx = parseInt($intensitySlider.value, 10);
+    const level = INTENSITY_LEVELS[idx];
+    $intensityLabel.textContent = chrome.i18n.getMessage(`intensity${level.key.charAt(0).toUpperCase() + level.key.slice(1)}`)
+      || INTENSITY_LABELS[idx];
+    try {
+      await saveSettings({ intervalSec: level.intervalSec });
+      // Notify service worker of settings change
+      await sendMessage(MSG.SETTINGS_UPDATED);
+    } catch (err) {
+      log.error('Failed to save intensity:', err);
+    }
+  });
+
+  // Desktop warning dismiss
+  $dismissWarning.addEventListener('click', () => {
+    $desktopWarning.classList.add('desktop-warning--hidden');
+    chrome.storage.local.set({ 'drift-warning-dismissed': true });
   });
 
   // Presence detection — refresh on popup open

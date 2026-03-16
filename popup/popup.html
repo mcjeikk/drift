@@ -38,16 +38,19 @@
             aria-label="Simple mode — minimal cursor movement">
       <span class="mode-btn__icon">⚡</span>
       <span class="mode-btn__label" data-i18n="modeSimple">Simple</span>
+      <span class="mode-btn__desc" data-i18n="modeSimpleShort">Micro-movimientos del mouse</span>
     </button>
     <button class="mode-btn" data-mode="zen" role="radio" aria-checked="false" tabindex="0"
             aria-label="Zen mode — smooth circular motion">
       <span class="mode-btn__icon">🧘</span>
       <span class="mode-btn__label" data-i18n="modeZen">Zen</span>
+      <span class="mode-btn__desc" data-i18n="modeZenShort">Movimiento circular suave</span>
     </button>
     <button class="mode-btn mode-btn--active" data-mode="human" role="radio" aria-checked="true" tabindex="0"
             aria-label="Human mode — realistic activity patterns">
       <span class="mode-btn__icon">🤖</span>
       <span class="mode-btn__label" data-i18n="modeHuman">Human</span>
+      <span class="mode-btn__desc" data-i18n="modeHumanShort">Mouse + scroll + teclas</span>
     </button>
   </section>
 
@@ -62,6 +65,28 @@
     </div>
     <p class="timer-remaining" id="timer-remaining" role="status" aria-live="polite"></p>
   </section>
+
+  <!-- Intensity Slider -->
+  <section class="intensity" role="region" aria-label="Intensity control">
+    <p class="section-label" data-i18n="intensityLabel">INTENSIDAD:</p>
+    <div class="intensity__control">
+      <input type="range" id="intensity-slider" class="intensity__slider" min="0" max="2" step="1" value="1">
+      <span class="intensity__label" id="intensity-label">Media</span>
+    </div>
+    <div class="intensity__ticks">
+      <span data-i18n="intensityLow">Baja</span>
+      <span data-i18n="intensityMed">Media</span>
+      <span data-i18n="intensityHigh">Alta</span>
+    </div>
+  </section>
+
+  <!-- Desktop Warning -->
+  <div class="desktop-warning" id="desktop-warning" role="alert">
+    <div class="desktop-warning__content">
+      <span class="desktop-warning__text">⚠️ <span data-i18n="desktopWarning">Drift mueve el cursor dentro del navegador. Apps de escritorio como Teams pueden requerir movimiento real del mouse.</span></span>
+      <button class="desktop-warning__close" id="dismiss-warning" aria-label="Dismiss">✕</button>
+    </div>
+  </div>
 
   <!-- Schedule Info -->
   <section class="schedule-info" id="schedule-info" role="status" aria-live="polite" hidden>
@@ -86,7 +111,7 @@
   </section>
 
   <!-- Browser Note -->
-  <p class="browser-note" aria-label="Keep Chrome running for Drift to work">
+  <p class="browser-note" aria-label="Keep Chrome running for Drift to work" data-i18n="browserNote">
     💡 Keep Chrome open for Drift to stay active
   </p>
 

@@ -43,6 +43,10 @@
     "message": "Movimiento mínimo del cursor",
     "description": "Descripción modo simple"
   },
+  "modeSimpleShort": {
+    "message": "Micro-movimientos del mouse",
+    "description": "Descripción corta modo simple"
+  },
   "modeZen": {
     "message": "Zen",
     "description": "Modo zen"
@@ -51,6 +55,10 @@
     "message": "Movimiento circular suave",
     "description": "Descripción modo zen"
   },
+  "modeZenShort": {
+    "message": "Movimiento circular suave",
+    "description": "Descripción corta modo zen"
+  },
   "modeHuman": {
     "message": "Humano",
     "description": "Modo humano"
@@ -58,6 +66,10 @@
   "modeHumanDesc": {
     "message": "Patrones de actividad realistas",
     "description": "Descripción modo humano"
+  },
+  "modeHumanShort": {
+    "message": "Mouse + scroll + teclas",
+    "description": "Descripción corta modo humano"
   },
   "activeFor": {
     "message": "Activo por $TIME$",
@@ -334,5 +346,29 @@
   "errorTimer": {
     "message": "Error en el timer",
     "description": "Error al configurar timer"
+  },
+  "intensityLabel": {
+    "message": "INTENSIDAD:",
+    "description": "Etiqueta del control de intensidad"
+  },
+  "intensityLow": {
+    "message": "Baja",
+    "description": "Intensidad baja"
+  },
+  "intensityMed": {
+    "message": "Media",
+    "description": "Intensidad media"
+  },
+  "intensityHigh": {
+    "message": "Alta",
+    "description": "Intensidad alta"
+  },
+  "desktopWarning": {
+    "message": "Drift mueve el cursor dentro del navegador. Apps de escritorio como Teams pueden requerir movimiento real del mouse.",
+    "description": "Advertencia sobre apps de escritorio"
+  },
+  "browserNote": {
+    "message": "💡 Mantén Chrome abierto para que Drift funcione",
+    "description": "Nota sobre mantener Chrome abierto"
   }
 }
