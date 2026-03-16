@@ -8,6 +8,7 @@ import { MSG, STATUS, MODES, META } from '../utils/constants.js';
 import { sendMessage } from '../utils/messages.js';
 import { formatDuration, formatMinutes, minutesUntil, applyI18n } from '../utils/helpers.js';
 import { createLogger } from '../utils/logger.js';
+import { getSettings } from '../utils/storage.js';
 
 const log = createLogger('popup');
 
@@ -45,12 +46,25 @@ let currentState = null;
 
 document.addEventListener('DOMContentLoaded', async () => {
   applyI18n();
+  await applyStoredTheme();
   $versionText.textContent = `v${META.VERSION}`;
   await refreshState();
   bindEvents();
   startTimerUpdate();
   log.info('Popup initialised');
 });
+
+/**
+ * Load the user's theme preference from storage and apply it.
+ */
+async function applyStoredTheme() {
+  try {
+    const settings = await getSettings();
+    document.documentElement.setAttribute('data-theme', settings.theme || 'system');
+  } catch {
+    document.documentElement.setAttribute('data-theme', 'system');
+  }
+}
 
 /* ================================================================== */
 /*  STATE RENDERING                                                   */
@@ -204,6 +218,7 @@ function startTimerUpdate() {
 function bindEvents() {
   // Main toggle
   $toggleInput.addEventListener('change', async () => {
+    $toggleInput.disabled = true;
     try {
       const data = await sendMessage(MSG.TOGGLE);
       if (data) {
@@ -212,6 +227,11 @@ function bindEvents() {
       }
     } catch (err) {
       log.error('Toggle failed:', err);
+      showError(chrome.i18n.getMessage('errorToggle') || 'Toggle failed');
+      // Revert toggle visual
+      $toggleInput.checked = !$toggleInput.checked;
+    } finally {
+      $toggleInput.disabled = false;
     }
   });
 
@@ -246,6 +266,8 @@ function bindEvents() {
   $timerBtns.forEach((btn) => {
     btn.addEventListener('click', async () => {
       const minutes = parseInt(btn.dataset.minutes, 10);
+      if (isNaN(minutes) || minutes <= 0) return;
+      btn.disabled = true;
       try {
         const data = await sendMessage(MSG.SET_TIMER, { minutes });
         if (data) {
@@ -254,6 +276,9 @@ function bindEvents() {
         }
       } catch (err) {
         log.error('Set timer failed:', err);
+        showError(chrome.i18n.getMessage('errorTimer') || 'Timer failed');
+      } finally {
+        btn.disabled = false;
       }
     });
   });
@@ -285,3 +310,21 @@ window.addEventListener('pagehide', () => {
     timerInterval = null;
   }
 });
+
+/* ================================================================== */
+/*  ERROR FEEDBACK                                                    */
+/* ================================================================== */
+
+/**
+ * Briefly show an error message in the status area.
+ *
+ * @param {string} msg - Error message to display
+ */
+function showError(msg) {
+  $statusText.textContent = msg;
+  $statusText.classList.add('status-text--error');
+  setTimeout(() => {
+    $statusText.classList.remove('status-text--error');
+    if (currentState) renderState(currentState);
+  }, 2000);
+}

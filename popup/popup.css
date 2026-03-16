@@ -134,6 +134,10 @@ body {
   color: var(--color-success);
 }
 
+.status-text--error {
+  color: var(--color-error);
+}
+
 .active-time {
   font-size: 12px;
   color: var(--surface-muted);

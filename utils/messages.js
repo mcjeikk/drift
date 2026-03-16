@@ -4,6 +4,10 @@
  * @module utils/messages
  */
 
+import { createLogger } from './logger.js';
+
+const log = createLogger('messages');
+
 /**
  * Send a typed message to the service worker and await its response.
  *
@@ -26,7 +30,7 @@ export async function sendMessage(type, payload = {}) {
     return response?.data ?? null;
   } catch (error) {
     if (error.message?.includes('Extension context invalidated')) {
-      console.warn('[messages] Extension context invalidated — page needs refresh');
+      log.warn('Extension context invalidated — page needs refresh');
       return null;
     }
     throw error;

@@ -13,6 +13,10 @@ import { createLogger } from '../utils/logger.js';
 import { getSettings, saveSettings, getRuntime, saveRuntime } from '../utils/storage.js';
 import { isWithinSchedule, minutesUntil } from '../utils/helpers.js';
 import { getPatternGenerator } from '../utils/patterns.js';
+import { withErrorBoundary } from '../utils/errors.js';
+
+/** @type {Set<string>} Set of valid message types for validation */
+const VALID_MSG_TYPES = new Set(Object.values(MSG));
 
 const log = createLogger('SW');
 
@@ -20,11 +24,11 @@ const log = createLogger('SW');
 /*  EVENT REGISTRATION — must be synchronous & top-level              */
 /* ================================================================== */
 
-chrome.runtime.onInstalled.addListener(handleInstalled);
-chrome.runtime.onStartup.addListener(handleStartup);
-chrome.alarms.onAlarm.addListener(handleAlarm);
+chrome.runtime.onInstalled.addListener(withErrorBoundary(handleInstalled, 'onInstalled'));
+chrome.runtime.onStartup.addListener(withErrorBoundary(handleStartup, 'onStartup'));
+chrome.alarms.onAlarm.addListener(withErrorBoundary(handleAlarm, 'onAlarm'));
 chrome.runtime.onMessage.addListener(handleMessage);
-chrome.commands.onCommand.addListener(handleCommand);
+chrome.commands.onCommand.addListener(withErrorBoundary(handleCommand, 'onCommand'));
 
 /* ================================================================== */
 /*  LIFECYCLE                                                         */
@@ -453,7 +457,18 @@ async function handleAlarm(alarm) {
  * @returns {boolean} true if response is async
  */
 function handleMessage(message, sender, sendResponse) {
+  if (!message || typeof message.type !== 'string') {
+    sendResponse({ success: false, error: 'Invalid message: missing type' });
+    return false;
+  }
+
   const { type, payload } = message;
+
+  if (!VALID_MSG_TYPES.has(type)) {
+    log.warn('Rejected unknown message type:', type);
+    sendResponse({ success: false, error: `Unknown message type: ${type}` });
+    return false;
+  }
 
   const handle = async () => {
     switch (type) {
@@ -469,6 +484,10 @@ function handleMessage(message, sender, sendResponse) {
       }
 
       case MSG.SET_MODE: {
+        const validModes = Object.values(MODES);
+        if (!payload?.mode || !validModes.includes(payload.mode)) {
+          throw new Error(`Invalid mode: ${payload?.mode}`);
+        }
         const runtime = await getRuntime();
         await saveRuntime({ mode: payload.mode });
         if (runtime.status === STATUS.ACTIVE) {
@@ -478,9 +497,14 @@ function handleMessage(message, sender, sendResponse) {
         return { mode: payload.mode };
       }
 
-      case MSG.SET_TIMER:
-        await activateWithTimer(payload.minutes);
+      case MSG.SET_TIMER: {
+        const minutes = Number(payload?.minutes);
+        if (!Number.isFinite(minutes) || minutes <= 0 || minutes > 1440) {
+          throw new Error('Invalid timer duration');
+        }
+        await activateWithTimer(minutes);
         return await getRuntime();
+      }
 
       case MSG.CANCEL_TIMER:
         await chrome.alarms.clear(ALARMS.TIMER_END);
@@ -544,4 +568,4 @@ async function handleCommand(command) {
 
 /* ================================================================== */
 
-log.info('Drift service worker loaded — v0.1.0');
+log.info('Drift service worker loaded — v0.1.1');

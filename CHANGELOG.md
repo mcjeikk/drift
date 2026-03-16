@@ -5,6 +5,17 @@ All notable changes to Drift will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] — 2026-03-16
+
+### Changed
+- **Theme system**: popup and welcome pages now apply stored theme on load
+- **Error boundaries**: service worker event handlers wrapped with `withErrorBoundary`
+- **Message validation**: service worker validates message type and payload before processing
+- **Input validation**: SET_MODE validates against allowed modes; SET_TIMER validates numeric range
+- **Logger consistency**: replaced raw `console.warn`/`console.error` with centralized logger in `messages.js` and `errors.js`
+- **Popup UX**: toggle and timer buttons disabled during async operations; error feedback shown to user
+- **Code quality**: full audit against Chrome extension best practices — all items passing
+
 ## [0.1.0] — 2026-03-16
 
 ### Added

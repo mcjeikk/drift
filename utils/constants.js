@@ -176,7 +176,7 @@ export const DEFAULT_RUNTIME = Object.freeze({
 
 /** Extension metadata */
 export const META = Object.freeze({
-  VERSION: '0.1.0',
+  VERSION: '0.1.1',
   NAME: 'Drift',
   TAGLINE: 'Stay present',
   REPO: 'https://github.com/mcjeikk/drift',

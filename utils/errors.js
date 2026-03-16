@@ -3,6 +3,10 @@
  * @module utils/errors
  */
 
+import { createLogger } from './logger.js';
+
+const log = createLogger('errors');
+
 /** @enum {string} Error codes used throughout the extension */
 export const ErrorCodes = Object.freeze({
   STORAGE_FULL: 'STORAGE_FULL',
@@ -50,7 +54,7 @@ export function withErrorBoundary(fn, context = 'unknown') {
     try {
       return await fn(...args);
     } catch (error) {
-      console.error(`[DriftError][${context}]`, error);
+      log.error(`[${context}]`, error);
       if (error instanceof DriftError) throw error;
       throw new DriftError(
         `Unexpected error in ${context}: ${error.message}`,

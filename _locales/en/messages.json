@@ -63,7 +63,10 @@
     "message": "Active for $TIME$",
     "description": "Shows how long Drift has been active",
     "placeholders": {
-      "time": { "content": "$1", "example": "2h 34m" }
+      "time": {
+        "content": "$1",
+        "example": "2h 34m"
+      }
     }
   },
   "quickTimer": {
@@ -78,14 +81,20 @@
     "message": "$COUNT$m",
     "description": "Minutes abbreviation",
     "placeholders": {
-      "count": { "content": "$1", "example": "30" }
+      "count": {
+        "content": "$1",
+        "example": "30"
+      }
     }
   },
   "hours": {
     "message": "$COUNT$h",
     "description": "Hours abbreviation",
     "placeholders": {
-      "count": { "content": "$1", "example": "2" }
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
     }
   },
   "custom": {
@@ -112,8 +121,14 @@
     "message": "Next: $EVENT$ in $TIME$",
     "description": "Next scheduled event",
     "placeholders": {
-      "event": { "content": "$1", "example": "Lunch break" },
-      "time": { "content": "$2", "example": "45m" }
+      "event": {
+        "content": "$1",
+        "example": "Lunch break"
+      },
+      "time": {
+        "content": "$2",
+        "example": "45m"
+      }
     }
   },
   "lunchBreak": {
@@ -284,11 +299,40 @@
     "message": "Back",
     "description": "Back button text"
   },
-  "mon": { "message": "Mon", "description": "Monday abbreviation" },
-  "tue": { "message": "Tue", "description": "Tuesday abbreviation" },
-  "wed": { "message": "Wed", "description": "Wednesday abbreviation" },
-  "thu": { "message": "Thu", "description": "Thursday abbreviation" },
-  "fri": { "message": "Fri", "description": "Friday abbreviation" },
-  "sat": { "message": "Sat", "description": "Saturday abbreviation" },
-  "sun": { "message": "Sun", "description": "Sunday abbreviation" }
+  "mon": {
+    "message": "Mon",
+    "description": "Monday abbreviation"
+  },
+  "tue": {
+    "message": "Tue",
+    "description": "Tuesday abbreviation"
+  },
+  "wed": {
+    "message": "Wed",
+    "description": "Wednesday abbreviation"
+  },
+  "thu": {
+    "message": "Thu",
+    "description": "Thursday abbreviation"
+  },
+  "fri": {
+    "message": "Fri",
+    "description": "Friday abbreviation"
+  },
+  "sat": {
+    "message": "Sat",
+    "description": "Saturday abbreviation"
+  },
+  "sun": {
+    "message": "Sun",
+    "description": "Sunday abbreviation"
+  },
+  "errorToggle": {
+    "message": "Toggle failed",
+    "description": "Error when toggle fails"
+  },
+  "errorTimer": {
+    "message": "Timer failed",
+    "description": "Error when timer fails"
+  }
 }

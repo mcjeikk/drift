@@ -5,6 +5,7 @@
  */
 
 import { applyI18n } from '../utils/helpers.js';
+import { getSettings } from '../utils/storage.js';
 
 const TOTAL_SLIDES = 3;
 let current = 0;
@@ -14,11 +15,24 @@ const $dots   = document.querySelectorAll('.dot');
 const $btnBack = document.getElementById('btn-back');
 const $btnNext = document.getElementById('btn-next');
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   applyI18n();
+  await applyStoredTheme();
   bindEvents();
   updateUI();
 });
+
+/**
+ * Load the user's theme preference from storage and apply it.
+ */
+async function applyStoredTheme() {
+  try {
+    const settings = await getSettings();
+    document.documentElement.setAttribute('data-theme', settings.theme || 'system');
+  } catch {
+    document.documentElement.setAttribute('data-theme', 'system');
+  }
+}
 
 /**
  * Navigate to a specific slide index.
