@@ -25,6 +25,11 @@ Because everyone deserves real breaks:
 • Visual indicator showing which apps are active
 • Stay informed about your digital presence at a glance
 
+🆓 100% FREE & OPEN SOURCE
+• All features included — no premium tiers, no paywalls, no ads
+• Open source on GitHub — audit the code yourself
+• Free forever. No accounts, no subscriptions, no catch.
+
 ✨ DESIGNED FOR PROFESSIONALS
 • Clean, modern dark UI with indigo accents
 • Keyboard shortcut (Alt+Shift+D) for instant toggle

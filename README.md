@@ -42,6 +42,10 @@
 - Detects Microsoft Teams and Slack in your browser tabs
 - Visual indicator in the popup
 
+### 🆓 100% Free & Open Source
+- Every feature included — no premium tiers, no ads, no tracking
+- Free forever. No accounts, no subscriptions, no catch.
+
 ### 💡 More
 - **Keep Awake** — Prevents display sleep
 - **Keyboard shortcut** — `Alt+Shift+D` to toggle
